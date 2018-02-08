@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#  install_optsuite -
+#  install_optrove (formerly install_optsuite) -
 #  a general installer for GALAHAD/CUTEst/SIFDecode
 
 #  set DRYRUN to 1 to test install scripts without actually installing
