@@ -408,7 +408,7 @@ if (( $MATLAB_REQUIRED )); then
   NUMBER=${#COMP[@]}
   if (( $NUMBER )) ; then
     type -P $MATLABGFORTRAN &>/dev/null || \
-     { printf " Warning: you need to install $MATLABGFORTRAN\n to allow for Matlab and CUTEst interaction. Aborting\n" >&2; exit 3; }
+     { printf " Warning: you need to install $MATLABGFORTRAN to allow\n for Matlab and CUTEst interaction. Aborting\n" >&2; exit 3; }
     echo " GNU $MATLABGFORTRAN compiler will be used for Matlab compatibility"
     COMPILER="compiler.${MCH}.${OS}.gfo"
     CMP="gfo"
