@@ -196,7 +196,8 @@ while [ $CORRECT_PLATFORM == "false" ]; do
 
                echo -e ' Select operating system\n'
                echo '   (1) Windows 2000/XP with MinGW/Msys'
-               echo '   (2) Linux'
+               echo '   (2) Windows 10 with MinGW64/Msys2'
+               echo '   (3) Linux'
 
                read CHOICE
 
@@ -208,11 +209,16 @@ while [ $CORRECT_PLATFORM == "false" ]; do
 ;;
                2)
                   CORRECT_OS="true"
+                  export OS="msys2"
+                  export OPSYS="MSYS2"
+;;
+               3)
+                  CORRECT_OS="true"
                   export OS="lnx"
                   export OPSYS="Linux"
 ;;
                *)
-                  echo ' Please give an integer between 1 and 2'
+                  echo ' Please give an integer between 1 and 3'
                esac
             done
 ;;
