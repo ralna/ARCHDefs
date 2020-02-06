@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #  install_optrove (formerly install_optsuite) -
 #  a general installer for GALAHAD/CUTEst/SIFDecode
