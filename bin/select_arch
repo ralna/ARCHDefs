@@ -1,4 +1,4 @@
-#!/bin/bash -vx
+#!/usr/bin/env bash -vx
 # Build script for SIFDecode / CUTEst / GALAHAD
 
 # syntax: select_arch
