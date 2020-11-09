@@ -342,7 +342,8 @@ if (( $MATLAB_REQUIRED )); then
      echo '   (2) R2011a-R2013a'
      echo '   (3) R2013b-R2016a'
      echo '   (4) R2016b-R2017b'
-     echo '   (5) R2018a or later'
+     echo '   (5) R2018a-R2020a'
+     echo '   (6) R2020b or later'
 
      read CHOICE
 
@@ -409,8 +410,21 @@ if (( $MATLAB_REQUIRED )); then
                 MATLABOMP4="yes"
               fi
 ;;
+         "6")
+              CORRECT_MATLAB="true"
+              if [[ ${OS} == "osx" ]]; then
+                MATLABGCC="gcc-4.3"
+                MATLABGCXX="g++-4.3"
+                MATLABGFORTRAN="gfortran-4.3"
+              else
+                MATLABGCC="gcc-8"
+                MATLABGCXX="g++-8"
+                MATLABGFORTRAN="gfortran-8"
+                MATLABOMP4="yes"
+              fi
+;;
          *)
-           echo ' Please give an integer between 1 and 5'
+           echo ' Please give an integer between 1 and 6'
      esac
   done
 else
@@ -418,8 +432,8 @@ else
     MATLABGCC="gcc-4.3"
     MATLABGFORTRAN="gfortran-4.3"
   else
-    MATLABGCC="gcc-6"
-    MATLABGFORTRAN="gfortran-6"
+    MATLABGCC="gcc-8"
+    MATLABGFORTRAN="gfortran-8"
   fi
 fi
 
