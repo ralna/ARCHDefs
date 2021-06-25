@@ -526,9 +526,14 @@ VERSION=${MCH}.${OS}.${CMP}
 #echo "omp4 ? " $OMP4
 
 if [ $OMP4 == "yes" ]; then
- SSIDS_REQUIRED=1
- SSIDS="ssids"
- SPRAL="$SPRAL -lstdc++ -lhwloc"
+ if [[ ${OS} == "osx" ]]; then
+  SSIDS_REQUIRED=0
+  SSIDS="ssids_dum"
+ else
+  SSIDS_REQUIRED=1
+  SSIDS="ssids"
+  SPRAL="$SPRAL -lstdc++ -lhwloc"
+ fi
 else
  SSIDS_REQUIRED=0
  SSIDS="ssids_dum"
