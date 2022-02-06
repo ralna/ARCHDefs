@@ -1,4 +1,4 @@
-# GNU gfortran compiler
+# GNU gfortran compiler without OMP 4.0 support
 #
 # Fortran compilation and loading
 #
@@ -35,7 +35,7 @@ MOMP='-lgomp'
 TIMER=GEN
 BLAS=
 LAPACK=
-OMP4=yes
+OMP4=no
 IEEECK=
 HSL=
 SPRAL='-lgalahad_spral'

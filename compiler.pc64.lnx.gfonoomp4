@@ -1,4 +1,4 @@
-# GNU gfortran compiler
+# GNU gfortran compiler without OMP 4.0 support
 #
 # Fortran compilation and loading
 #
@@ -31,11 +31,12 @@ CUDACODE=
 CUDABASIC=
 CUDALIBS=
 CUDAOPENMP=$OPENMP
+CUDAOPENMP=$OPENMP
 MOMP='-lgomp'
 TIMER=GEN
 BLAS=
 LAPACK=
-OMP4=yes
+OMP4=no
 IEEECK=
 HSL=
 SPRAL='-lgalahad_spral'
@@ -44,5 +45,5 @@ PARDISO='-lgalahad_pardiso'
 MKL_PARDISO='-lgalahad_mkl_pardiso'
 WSMP='-lgalahad_wsmp'
 NOT95=IS95
-NOT64=NOT64
+NOT64=IS64
 BINSHELL=sh

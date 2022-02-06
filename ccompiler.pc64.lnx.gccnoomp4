@@ -1,4 +1,4 @@
-# GCC
+# GCC without OMP 4.0 support
 
 #
 #  C compilation and loading
@@ -17,4 +17,4 @@ CXXNOOPT=-O0
 CXXDEBUG=''
 CXXFFLAGS=''
 
-HWLOC=''
+HWLOC='un'

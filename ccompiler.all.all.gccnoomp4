@@ -1,4 +1,4 @@
-# GCC
+# generic GCC without OMP 4.0 support
 
 #
 #  C compilation and loading
@@ -6,8 +6,8 @@
 
 CC=gcc
 CCBASIC='-c -fPIC'
-CCISO='-ansi -pedantic' # -pedantic-errors'
-CCDEBUG= #-g -DDEBUG_GALAHAD
+CCISO=''
+CCDEBUG=#-DDEBUG_GALAHAD
 CCFFLAGS='-lgfortran -lm'
 
 CXX=g++
@@ -17,4 +17,4 @@ CXXNOOPT=-O0
 CXXDEBUG=''
 CXXFFLAGS=''
 
-HWLOC=''
+HWLOC='un'
