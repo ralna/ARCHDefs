@@ -542,7 +542,8 @@ fi
 #  if a C compiler is required, get details
 
 if (( $AMPL_REQUIRED )) || (( $MATLAB_REQUIRED )) || \
-   (( $CUTEST_REQUIRED )) || (( $SSIDS_REQUIRED )); then
+   (( $CUTEST_REQUIRED )) || (( $SSIDS_REQUIRED )) || \
+   (( $C_REQUIRED )) ; then
   if (( $MATLAB_REQUIRED )); then
     if [[ ${OS} == "osx" ]]; then
       CCOMP=( `$LS $ARCH/ccompiler.${MCH}.${OS}.icc 2>/dev/null` )
