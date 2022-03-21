@@ -165,21 +165,21 @@ while [ $CORRECT_PLATFORM == "false" ]; do
             while [ $CORRECT_OS == "false" ]; do
 
                echo -e ' Select operating system\n'
-               echo '   (1) Windows 2000/XP with MinGW/Msys'
-               echo '   (2) Linux'
+               echo '   (1) Linux'
+               echo '   (2) Windows 2000/XP with MinGW/Msys'
 
                read CHOICE
 
                case  $CHOICE  in
                1)
                   CORRECT_OS="true"
-                  export OS="mgw"
-                  export OPSYS="MGW"
+                  export OS="lnx"
+                  export OPSYS="Linux"
 ;;
                2)
                   CORRECT_OS="true"
-                  export OS="lnx"
-                  export OPSYS="Linux"
+                  export OS="mgw"
+                  export OPSYS="MGW"
 ;;
                *)
                   echo ' Please give an integer between 1 and 2'
@@ -195,17 +195,17 @@ while [ $CORRECT_PLATFORM == "false" ]; do
             while [ $CORRECT_OS == "false" ]; do
 
                echo -e ' Select operating system\n'
-               echo '   (1) Windows 2000/XP with MinGW/Msys'
-               echo '   (2) Windows 10 with MinGW64/Msys2'
-               echo '   (3) Linux'
+               echo '   (1) Linux'
+               echo '   (2) Windows 10 onwards with MinGW64/Msys2'
+               echo '   (3) Windows 2000/XP with MinGW/Msys'
 
                read CHOICE
 
                case  $CHOICE  in
                1)
                   CORRECT_OS="true"
-                  export OS="mgw"
-                  export OPSYS="MGW"
+                  export OS="lnx"
+                  export OPSYS="Linux"
 ;;
                2)
                   CORRECT_OS="true"
@@ -214,8 +214,8 @@ while [ $CORRECT_PLATFORM == "false" ]; do
 ;;
                3)
                   CORRECT_OS="true"
-                  export OS="lnx"
-                  export OPSYS="Linux"
+                  export OS="mgw"
+                  export OPSYS="MGW"
 ;;
                *)
                   echo ' Please give an integer between 1 and 3'
@@ -680,6 +680,13 @@ if (( $AMPL_REQUIRED )); then
         YESNO='N'
         yesno_default_no ' Do you wish to abort'
         [[ $? != 0 ]] && exit 4
+        yesno_default_no 'Do you wish to skip AMPL interface'
+        let skip_ampl=$?
+        if (( $skip_ampl )); then
+          echo " Skipping AMPL interface"
+          CORRECT_AMPLLIBDIR="true"
+          AMPL_REQUIRED=0
+        fi
      fi
   done
 else

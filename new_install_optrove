@@ -6,8 +6,8 @@
 
 #  set DRYRUN to 1 to test install scripts without actually installing
 
-#DRYRUN=0
-DRYRUN=1
+DRYRUN=0
+#DRYRUN=1
 
 #  see if there is a specific build agenda
 
@@ -38,6 +38,7 @@ fi
 AMPL_REQUIRED=0
 MATLAB_REQUIRED=0
 CUTEST_REQUIRED=0
+SIF_REQUIRED=0
 C_REQUIRED=0
 export GALAHAD_REQPREC=""
 
@@ -93,8 +94,9 @@ if (( $install_galahad )); then
      echo '    (2) LANCELOT B and its dependencies'
      echo '    (3) the LP/QP packages and their dependencies'
      echo '    (4) the regularised quadratic solvers and their dependencies'
-     echo '    (5) FILTRANE and its dependencies'
-     echo '    (6) the un/bound-constrained solvers and their dependencies'
+     echo '    (5) the un/bound-constrained solvers and their dependencies'
+     echo '    (6) FILTRANE and its dependencies'
+     echo '    (7) the global optimizationsolvers and their dependencies'
 
      read CHOICE
 
@@ -117,96 +119,22 @@ if (( $install_galahad )); then
   ;;
          "5")
               CORRECT_SUBSET="true"
-              SUBSET="filtrane"
+              SUBSET="ucbc"
   ;;
          "6")
               CORRECT_SUBSET="true"
-              SUBSET="ucbc"
+              SUBSET="filtrane"
+  ;;
+         "7")
+              CORRECT_SUBSET="true"
+              SUBSET="go"
   ;;
          *)
-           echo ' Please give an integer between 1 and 5'
+           echo ' Please give an integer between 1 and 7'
      esac
   done
 
-#  CORRECT_INTERFACE="false"
-  CORRECT_INTERFACE="true"
-  while [ $CORRECT_INTERFACE == "false" ]; do
-     echo ' Select required interfaces to GALAHAD packages'
-     echo ' (the chosen subset will optionally be installed below)'
-     echo
-     echo '    (E) Provide all available interfaces (CUTEst, Matlab, AMPL)'
-     if [[ $SUBSET == "lanb" ]] ; then
-       echo '    (S) Provide an interface to SIF'
-     elif [[ $SUBSET == "filtrane" ]] ; then
-       echo '    (C) Provide CUTEst interfaces'
-     else
-       echo '    (X) Provide all available interfaces except to Matlab'
-       echo '    (B) Provide all available interfaces except to AMPL'
-       echo '    (C) Provide CUTEst interfaces'
-       echo '    (M) Provide Matlab interfaces'
-     fi
-     if [[ $SUBSET == "all" || $SUBSET == "qp" || \
-           $SUBSET == "filtrane" || $SUBSET == "ucbc" ]] ; then
-       echo '    (A) Provide AMPL interfaces'
-     fi
-     echo '    (N) Standalone - no interfaces required'
-
-     read CHOICE
-     CHOICE=`echo $CHOICE | tr a-z A-Z`
-
-     case  $CHOICE  in
-         "E")
-              CORRECT_INTERFACE="true"
-              INTERFACE="all"
-              MATLAB_REQUIRED=1
-              AMPL_REQUIRED=1
-              CUTEST_REQUIRED=1
-  ;;
-         "X")
-              CORRECT_INTERFACE="true"
-              INTERFACE="cutestampl"
-              AMPL_REQUIRED=1
-              CUTEST_REQUIRED=1
-  ;;
-         "N")
-              CORRECT_INTERFACE="true"
-              INTERFACE="none"
-              let use_cutest=0
-              let use_sifdecode=0
-  ;;
-         "C")
-              CORRECT_INTERFACE="true"
-              INTERFACE="cutest"
-              CUTEST_REQUIRED=1
-  ;;
-         "S")
-              CORRECT_INTERFACE="true"
-              INTERFACE="sif"
-              let use_cutest=0
-  ;;
-         "M")
-              CORRECT_INTERFACE="true"
-              INTERFACE="matlab"
-              MATLAB_REQUIRED=1
-  ;;
-         "B")
-              CORRECT_INTERFACE="true"
-              INTERFACE="cutestmatlab"
-              MATLAB_REQUIRED=1
-              CUTEST_REQUIRED=1
-  ;;
-         "A")
-              CORRECT_INTERFACE="true"
-              INTERFACE="ampl"
-              CUTEST_REQUIRED=1
-              AMPL_REQUIRED=1
-  ;;
-         *)
-           echo ' Invalid choice "'$CHOICE'". Please try again'
-     esac
-  done
-
-   echo ' Select required interfaces to GALAHAD packages -'
+  echo ' Select required interfaces to GALAHAD packages -'
 
   if [[ $SUBSET == "lanb" ]] ; then
     let install_cutest=0
@@ -216,6 +144,7 @@ if (( $install_galahad )); then
       let use_sifdecode=1
       let use_cutest=0
       INTERFACE="sif"
+      SIF_REQUIRED=1
     else
       let use_sifdecode=0
       INTERFACE="notsif"
@@ -241,13 +170,13 @@ if (( $install_galahad )); then
   fi
 
   if [[ $SUBSET == "all" || $SUBSET == "qp" || \
-        $SUBSET == "rq"  || $SUBSET == "ucbc" ]] ; then
+        $SUBSET == "rq"  || $SUBSET == "ucbc" || \
+        $SUBSET == "go" ]] ; then
     yesno_default_no ' Do you require MATLAB interfaces to GALAHAD'
     let install_matlab=$?
     if (( $install_matlab )); then
       MATLAB_REQUIRED=1
     fi
-
     yesno_default_no ' Do you require C interfaces to GALAHAD'
     let install_c=$?
     if (( $install_c )); then
@@ -387,7 +316,7 @@ fi
 if (( $install_galahad )); then
    echo ' Installing GALAHAD ...'
    cd $GALAHAD
-   . ./bin/install_galahad_main
+   . ./bin/new_install_galahad_main
    if [[ ! $? ]]; then
        error 'An error occurred while installing GALAHAD.'
        exit $?
