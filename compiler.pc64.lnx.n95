@@ -14,7 +14,7 @@ MVMODS='$(MV) -f $(OBJ)/*.mod $(MOD)/'
 OPTIMIZATION='-O'
 NOOPTIMIZATION='-O0'
 DEBUG=
-DEBUG='-C=all -gline -nan -g'
+#DEBUG='-C=all -gline -nan -g'
 OPENMP=
 SOMP=
 F77='-fixed -w'
