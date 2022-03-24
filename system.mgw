@@ -35,3 +35,7 @@ TAIL="/bin/tail"
 WC="/bin/wc"
 MAKE="/bin/make"
 RANLIB="/mingw/bin/ranlib"
+
+#  is sched_getcpu unavailable?
+
+GETCPU="un"

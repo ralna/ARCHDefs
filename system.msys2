@@ -35,3 +35,7 @@ TAIL=$MSY2"/bin/tail"
 WC=$MSY2"/bin/wc"
 MAKE=$MSY2"/bin/make"
 RANLIB="$MINGW64/bin/ranlib"
+
+#  is sched_getcpu unavailable?
+
+GETCPU="un"

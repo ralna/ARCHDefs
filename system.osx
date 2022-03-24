@@ -35,3 +35,7 @@ TAIL="/usr/bin/tail"
 WC="/usr/bin/wc"
 MAKE="/usr/bin/make"
 RANLIB="true"  # Ranlib isn't useful on OSX.
+
+#  is sched_getcpu unavailable?
+
+GETCPU="un"

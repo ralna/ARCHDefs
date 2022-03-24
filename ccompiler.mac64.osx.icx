@@ -12,7 +12,7 @@ CCDEBUG=#-DDEBUG_GALAHAD
 CCFFLAGS=-nofor_main
 
 CXX='$(CC)'
-CXXBASIC='-c -std=c++11'
+CXXBASIC='-c -std=c++11 -I/usr/local/include'
 CXXOPT=-O2
 CXXNOOPT=-O0
 CXXDEBUG=''

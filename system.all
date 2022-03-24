@@ -35,3 +35,7 @@ TAIL="/usr/bin/tail"
 WC="/usr/bin/wc"
 MAKE="/usr/bin/make"
 RANLIB="/usr/bin/ranlib"
+
+#  is sched_getcpu unavailable?
+
+GETCPU="un"

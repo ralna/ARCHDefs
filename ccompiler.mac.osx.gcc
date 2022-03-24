@@ -11,7 +11,7 @@ CCDEBUG= #-g -DDEBUG_GALAHAD
 CCFFLAGS=-lgfortran
 
 CXX=g++
-CXXBASIC='-c -std=c++11 -fPIC'
+CXXBASIC='-c -std=c++11 -fPIC -I/usr/local/include'
 CXXOPT=-O2
 CXXNOOPT=-O0
 CXXDEBUG=''
