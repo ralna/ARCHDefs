@@ -529,8 +529,11 @@ VERSION=${MCH}.${OS}.${CMP}
 
 if [ $OMP4 == "yes" ]; then
  if [[ ${OS} == "osx" ]]; then
-  SSIDS_REQUIRED=0
-  SSIDS="ssids_dum"
+#  SSIDS_REQUIRED=0
+#  SSIDS="ssids_dum"
+  SSIDS_REQUIRED=1
+  SSIDS="ssids"
+  SPRAL="$SPRAL -lhwloc"
  else
   SSIDS_REQUIRED=1
   SSIDS="ssids"
@@ -560,7 +563,8 @@ if (( $AMPL_REQUIRED )) || (( $MATLAB_REQUIRED )) || \
         #CMP="icc"
 #       CCOMPUSED=`$LS $ARCH/ccompiler.${MCH}.${OS}.icc 2>/dev/null`
         CCOMPUSED="Intel $MATLABGCC compiler"
-        SSIDS="ssids_dum"
+#       SSIDS="ssids_dum"
+        SSIDS="ssids"
       else
         error " GNU $MATLABGFORTRAN/$MATLABGCC compilers required for
  Matlab compatibility not available.
@@ -581,7 +585,8 @@ if (( $AMPL_REQUIRED )) || (( $MATLAB_REQUIRED )) || \
 #       CCOMPUSED=`$LS $ARCH/ccompiler.${MCH}.${OS}.gcc 2>/dev/null`
         CCOMPUSED="GNU $MATLABGCC compiler"
         if [[ ${OS} == "osx" ]]; then
-          SSIDS="ssids_dum"
+#         SSIDS="ssids_dum"
+          SSIDS="ssids"
         fi
       else
         error " GNU $MATLABGFORTRAN/$MATLABGCC compilers required for
