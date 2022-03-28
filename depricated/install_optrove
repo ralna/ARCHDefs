@@ -2,7 +2,6 @@
 
 #  install_optrove (formerly install_optsuite) -
 #  a general installer for GALAHAD/CUTEst/SIFDecode
-#  version for GALAHAD 4.0 (March 2022)
 
 #  set DRYRUN to 1 to test install scripts without actually installing
 
@@ -38,8 +37,6 @@ fi
 AMPL_REQUIRED=0
 MATLAB_REQUIRED=0
 CUTEST_REQUIRED=0
-SIF_REQUIRED=0
-C_REQUIRED=0
 export GALAHAD_REQPREC=""
 
 #  if we're going to build anything, we need ARCHDefs
@@ -92,11 +89,9 @@ if (( $install_galahad )); then
      echo
      echo '    (1) Everything'
      echo '    (2) LANCELOT B and its dependencies'
-     echo '    (3) the LP/QP packages and their dependencies'
+     echo '    (3) the QP packages and their dependencies'
      echo '    (4) the regularised quadratic solvers and their dependencies'
-     echo '    (5) the un/bound-constrained solvers and their dependencies'
-     echo '    (6) FILTRANE and its dependencies'
-     echo '    (7) the global optimizationsolvers and their dependencies'
+     echo '    (5) FILTRANE and its dependencies'
 
      read CHOICE
 
@@ -119,77 +114,110 @@ if (( $install_galahad )); then
   ;;
          "5")
               CORRECT_SUBSET="true"
-              SUBSET="ucbc"
-  ;;
-         "6")
-              CORRECT_SUBSET="true"
               SUBSET="filtrane"
   ;;
-         "7")
-              CORRECT_SUBSET="true"
-              SUBSET="go"
-  ;;
          *)
-           echo ' Please give an integer between 1 and 7'
+           echo ' Please give an integer between 1 and 5'
      esac
   done
 
-  echo ' Select required interfaces to GALAHAD packages -'
+  CORRECT_INTERFACE="false"
+  while [ $CORRECT_INTERFACE == "false" ]; do
+     echo ' Select required interfaces to GALAHAD packages'
+     echo ' (the chosen subset will optionally be installed below)'
+     echo
+     echo '    (E) Provide all available interfaces (CUTEst, Matlab, AMPL)'
+     if [[ $SUBSET == "lanb" ]] ; then
+       echo '    (S) Provide an interface to SIF'
+     elif [[ $SUBSET == "filtrane" ]] ; then
+       echo '    (C) Provide CUTEst interfaces'
+     else
+       echo '    (X) Provide all available interfaces except to Matlab'
+       echo '    (B) Provide all available interfaces except to AMPL'
+       echo '    (C) Provide CUTEst interfaces'
+       echo '    (M) Provide Matlab interfaces'
+     fi
+     if [[ $SUBSET == "all" || $SUBSET == "qp" || \
+           $SUBSET == "filtrane" ]] ; then
+       echo '    (A) Provide AMPL interfaces'
+     fi
+     echo '    (N) Standalone - no interfaces required'
 
-  if [[ $SUBSET == "lanb" ]] ; then
-    let install_cutest=0
-    yesno_default_no ' Do you require a SIF interface to LANCELOT'
-    let install_sifdecode=$?
-    if (( $install_sifdecode )); then
-      let use_sifdecode=1
-      let use_cutest=0
-      INTERFACE="sif"
-      SIF_REQUIRED=1
-    else
-      let use_sifdecode=0
-      INTERFACE="notsif"
-    fi
-  else
-    yesno_default_no ' Do you require CUTEst interfaces to GALAHAD'
-    let install_cutest=$?
-    if (( $install_cutest )); then
-      CUTEST_REQUIRED=1
-    else
-      let use_sifdecode=0
-      INTERFACE="notsif"
-    fi
-  fi
+     read CHOICE
+     CHOICE=`echo $CHOICE | tr a-z A-Z`
 
-  if [[ $SUBSET == "all" || $SUBSET == "qp" || \
-        $SUBSET == "filtrane" ]] ; then
-    yesno_default_no ' Do you require AMPL interfaces to GALAHAD'
-    let install_ampl=$?
-    if (( $install_ampl )); then
-      AMPL_REQUIRED=1
-    fi
-  fi
-
-  if [[ $SUBSET == "all" || $SUBSET == "qp" || \
-        $SUBSET == "rq"  || $SUBSET == "ucbc" || \
-        $SUBSET == "go" ]] ; then
-    yesno_default_no ' Do you require MATLAB interfaces to GALAHAD'
-    let install_matlab=$?
-    if (( $install_matlab )); then
-      MATLAB_REQUIRED=1
-    fi
-    yesno_default_no ' Do you require C interfaces to GALAHAD'
-    let install_c=$?
-    if (( $install_c )); then
-      C_REQUIRED=1
-    fi
-  fi
+     case  $CHOICE  in
+         "E")
+              CORRECT_INTERFACE="true"
+              INTERFACE="all"
+              MATLAB_REQUIRED=1
+              AMPL_REQUIRED=1
+              CUTEST_REQUIRED=1
+  ;;
+         "X")
+              CORRECT_INTERFACE="true"
+              INTERFACE="cutestampl"
+              AMPL_REQUIRED=1
+              CUTEST_REQUIRED=1
+  ;;
+         "N")
+              CORRECT_INTERFACE="true"
+              INTERFACE="none"
+              let use_cutest=0
+              let use_sifdecode=0
+  ;;
+         "C")
+              CORRECT_INTERFACE="true"
+              INTERFACE="cutest"
+              CUTEST_REQUIRED=1
+  ;;
+         "S")
+              CORRECT_INTERFACE="true"
+              INTERFACE="sif"
+              let use_cutest=0
+  ;;
+         "M")
+              CORRECT_INTERFACE="true"
+              INTERFACE="matlab"
+              MATLAB_REQUIRED=1
+  ;;
+         "B")
+              CORRECT_INTERFACE="true"
+              INTERFACE="cutestmatlab"
+              MATLAB_REQUIRED=1
+              CUTEST_REQUIRED=1
+  ;;
+         "A")
+              CORRECT_INTERFACE="true"
+              INTERFACE="ampl"
+              CUTEST_REQUIRED=1
+              AMPL_REQUIRED=1
+  ;;
+         *)
+           echo ' Invalid choice "'$CHOICE'". Please try again'
+     esac
+  done
+fi
 
 #  do we wish to build cutest?
 
-elif (( $install_cutest )); then
-  CUTEST_REQUIRED=1
-  yesno_default_no 'Do you require the CUTEst-Matlab interface'
-  MATLAB_REQUIRED=$?
+if (( $use_cutest )) ; then
+  if [[ $INTERFACE == "all" || $INTERFACE == "cutestampl" || \
+        $INTERFACE == "cutest" || $INTERFACE == "cutestmatlab" ]] ; then
+      let install_cutest=1
+  elif [[ $INTERFACE == "matlab" || $INTERFACE == "ampl" ]] ; then
+      let install_cutest=0
+  else
+    yesno_default_yes 'Do you wish to install CUTEst'
+    let install_cutest=$?
+    if (( $install_cutest )); then
+      CUTEST_REQUIRED=1
+      yesno_default_no 'Do you require the CUTEst-Matlab interface'
+      MATLAB_REQUIRED=$?
+    fi
+  fi
+else
+  let install_cutest=0
 fi
 
 if (( $install_cutest )) ; then
@@ -212,7 +240,7 @@ if (( $use_sifdecode )) ; then
       let install_sifdecode=1
   elif [[ $INTERFACE == "sif" ]] ; then
       let install_sifdecode=1
-  elif [[ $INTERFACE == "notsif" ]] ; then
+  elif [[ $INTERFACE == "matlab" || $INTERFACE == "ampl" ]] ; then
       let install_sifdecode=0
   else
       yesno_default_yes 'Do you wish to install SIFDecode'
@@ -246,28 +274,14 @@ fi
 (( $install_sifdecode )) && echo "    $SIFDECODE"
 if (( $install_cutest )) ; then
   if (( $MATLAB_REQUIRED )) ; then
-    echo ' - CUTEst with Matlab interfaces from'
+    echo ' - CUTEst with Matlab interface from'
   else
     echo ' - CUTEst from'
   fi
   echo " -  $CUTEST"
 fi
-if (( $install_galahad )) ; then
-  if (( $MATLAB_REQUIRED )) ; then
-    if (( $C_REQUIRED )) ; then
-      echo ' - GALAHAD with C and Matlab interfaces from'
-    else
-      echo ' - GALAHAD with Matlab interfaces from'
-    fi
-  else
-    if (( $C_REQUIRED )) ; then
-      echo ' - GALAHAD with C interfaces from'
-    else
-      echo ' - GALAHAD from'
-    fi
-  fi
-  echo " -  $GALAHAD"
-fi
+(( $install_galahad ))   && echo ' - GALAHAD from'
+(( $install_galahad ))   && echo " -  $GALAHAD"
 echo
 
 topdir=$PWD
@@ -316,7 +330,7 @@ fi
 if (( $install_galahad )); then
    echo ' Installing GALAHAD ...'
    cd $GALAHAD
-   . ./bin/new_install_galahad_main
+   . ./bin/install_galahad_main
    if [[ ! $? ]]; then
        error 'An error occurred while installing GALAHAD.'
        exit $?
@@ -359,9 +373,6 @@ if (( $install_cutest )); then
 fi
 if (( $install_galahad )); then
   echo ' setenv MANPATH ${GALAHAD}/man:${MANPATH}'
-fi
-if (( $C_REQUIRED )); then
-  echo ' setenv INCLUDE ${GALAHAD}/include:${INCLUDE}'
 fi
 echo ""
 echo " Optionally, if you also wish this to be your default version, set"
@@ -421,10 +432,6 @@ fi
 if (( $install_galahad )); then
   echo ' export MANPATH="${GALAHAD}/man:${MANPATH}"'
 fi
-if (( $C_REQUIRED )); then
-  echo ' export INCLUDE="${GALAHAD}/include:${INCLUDE}"'
-fi
-
 echo ""
 echo " Optionally, if you also wish this to be your default version, add"
 echo ""
@@ -449,3 +456,8 @@ if (( $MATLAB_REQUIRED )); then
 fi
 echo ""
 echo ' Finally, remember to export MASTSIF="" to your SIF test-problem directory'
+
+
+
+
+
