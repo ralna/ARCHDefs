@@ -11,12 +11,12 @@ CCISO='-ansi'
 CCDEBUG=#-DDEBUG_GALAHAD
 CCFFLAGS=-nofor_main
 
-CXX='$(CC)'
+CXX=icpc
 CXXBASIC='-c -std=c++11 -I/usr/local/include'
 CXXOPT=-O2
 CXXNOOPT=-O0
 CXXDEBUG=''
 CXXFFLAGS=''
 
-#HWLOC='un'
-HWLOC=''
+HWLOC='un'
+#HWLOC=''
