@@ -1,4 +1,4 @@
-#!/bin/bash -vx
+#!/bin/bash
 # Build script for SIFDecode / CUTEst / GALAHAD
 
 # syntax: select_arch
@@ -375,11 +375,14 @@ VERSION=${MCH}.${OS}.${CMP}
 
 if [ $OMP4 == "yes" ]; then
  if [[ ${OS} == "osx" ]]; then
-#  SSIDS_REQUIRED=0
-#  SSIDS="ssids_dum"
-  SSIDS_REQUIRED=1
-  SSIDS="ssids"
-  SPRAL="$SPRAL -lhwloc"
+   if [[ ${CMP} == "ifr" ]]; then
+    SSIDS_REQUIRED=0
+    SSIDS="ssids_dum"
+   else
+    SSIDS_REQUIRED=1
+    SSIDS="ssids"
+    SPRAL="$SPRAL -lhwloc"
+   fi
  else
   SSIDS_REQUIRED=1
   SSIDS="ssids"
