@@ -1,16 +1,16 @@
-# GCC
+# GNU gcc compiler under OSX via homebrew
 
 #
 #  C compilation and loading
 #
 
-CC=gcc
+CC=/usr/local/bin/gcc
 CCBASIC='-c -fPIC'
 CCISO='-ansi -pedantic' # -pedantic-errors'
 CCDEBUG= #-g -DDEBUG_GALAHAD
 CCFFLAGS=-lgfortran
 
-CXX=g++
+CXX=/usr/local/bin/g++
 CXXBASIC='-c -std=c++11 -fPIC -I/usr/local/include'
 CXXOPT=-O2
 CXXNOOPT=-O0

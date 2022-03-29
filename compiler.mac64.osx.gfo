@@ -1,9 +1,9 @@
-# GNU gfortran compiler for 64-bit Macs under OSX
+# GNU gfortran compiler for 64-bit Macs under OSX via homebrew
 #
 # Fortran compilation and loading
 #
 
-FORTRAN='gfortran'
+FORTRAN='/usr/local/bin/gfortran'
 BASIC='-c -fPIC -fno-second-underscore -flat_namespace'
 MBASIC='-fPIC -fno-second-underscore -flat_namespace'
 LIBCMD=''
