@@ -5,9 +5,9 @@
 
 #for ifc pre version 8 replace next line by
 #FORTRAN='ifc'
-FORTRAN='ifort'
+FORTRAN='ifort -L/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib'
 #BASIC='-c -vec-report0'
-BASIC='-L/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib -c'
+BASIC='-c'
 LIBCMD=''
 #for ifc pre version 7 replace next line by
 #MODCMD='-cl,$MOD/work.pcl -Vaxlib'
