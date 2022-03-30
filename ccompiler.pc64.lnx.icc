@@ -5,13 +5,13 @@
 #
 
 CC=icc
-CCBASIC='-c -DIsifr'
+CCBASIC='-c -DIsifr -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -std=c11'
 CCISO='-ansi'
 CCDEBUG=#-DDEBUG_GALAHAD
 CCFFLAGS=-nofor_main
 
 CXX=icpc
-CXXBASIC='-c -std=c++11'
+CXXBASIC='-c -std=c++11 -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include'
 CXXOPT=-O2
 CXXNOOPT=-O0
 CXXDEBUG=''
