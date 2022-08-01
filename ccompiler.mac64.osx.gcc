@@ -1,17 +1,17 @@
-# GNU gcc compiler for 64-bit Macs under OSX via homebrew
+# GNU gcc compiler 11 for 64-bit Macs (incl. M1) under OSX via homebrew
 
 #
 #  C compilation and loading
 #
 
-CC=/usr/local/bin/gcc
+CC=/opt/homebrew/bin/gcc-11
 CCBASIC='-c -fPIC'
 CCISO='-ansi -pedantic' # -pedantic-errors'
 CCDEBUG= #-g -DDEBUG_GALAHAD
 CCFFLAGS=-lgfortran
 
-CXX=/usr/local/bin/g++
-CXXBASIC='-c -std=c++11 -fPIC -I/usr/local/include'
+CXX=/opt/homebrew/bin/g++-11
+CXXBASIC='-c -std=c++11 -fPIC -I/opt/homebrew/include'
 CXXOPT=-O2
 CXXNOOPT=-O0
 CXXDEBUG=''
