@@ -44,3 +44,4 @@ WSMP='-lgalahad_wsmp'
 NOT95=IS95
 NOT64=NOT64
 BINSHELL=sh
+SHARED='-shared'

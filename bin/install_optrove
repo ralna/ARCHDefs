@@ -2,7 +2,7 @@
 
 #  install_optrove (formerly install_optsuite) -
 #  a general installer for GALAHAD/CUTEst/SIFDecode
-#  version for GALAHAD 4.0 (March 2022)
+#  version for GALAHAD 4.1 (August 2022)
 
 #  set DRYRUN to 1 to test install scripts without actually installing
 
@@ -40,6 +40,8 @@ MATLAB_REQUIRED=0
 CUTEST_REQUIRED=0
 SIF_REQUIRED=0
 C_REQUIRED=0
+PYTHON_REQUIRED=0
+PYTHONVERSION=0.0
 export GALAHAD_REQPREC=""
 
 #  if we're going to build anything, we need ARCHDefs
@@ -181,6 +183,21 @@ if (( $install_galahad )); then
     let install_c=$?
     if (( $install_c )); then
       C_REQUIRED=1
+    fi
+    yesno_default_no ' Do you require python interfaces to GALAHAD (very limited at present)'
+    let install_py=$?
+    if (( $install_py )); then
+      python3 -V &>/dev/null
+      status=$?
+      if (( $status == 0 )); then
+        PYTHON_REQUIRED=1
+        C_REQUIRED=1
+        PYVERSION=$(python3 -V | awk '{print $2}')
+        PYTHONVERSION=$(echo ${PYVERSION%.*})
+      else
+        warning 'python3 does not seem to have been installed
+          no python interfaces will be provided'
+      fi
     fi
   fi
 
