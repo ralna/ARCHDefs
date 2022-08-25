@@ -42,6 +42,8 @@ SIF_REQUIRED=0
 C_REQUIRED=0
 PYTHON_REQUIRED=0
 PYTHONVERSION=0.0
+SOABI=""
+PYSITEPACKDIR=""
 export GALAHAD_REQPREC=""
 
 #  if we're going to build anything, we need ARCHDefs
@@ -194,6 +196,8 @@ if (( $install_galahad )); then
         C_REQUIRED=1
         PYVERSION=$(python3 -V | awk '{print $2}')
         PYTHONVERSION=$(echo ${PYVERSION%.*})
+        SOABI=`python3 -c "import sysconfig ; print(sysconfig.get_config_var('SOABI'))"`
+        PYSITEPACKDIR=~/.local/lib/python${PYTHONVERSION}/site-packages
       else
         warning 'python3 does not seem to have been installed
           no python interfaces will be provided'
