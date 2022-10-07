@@ -4,7 +4,7 @@
 #  C compilation and loading
 #
 
-CC=/opt/homebrew/bin/gcc-11
+CC=gcc-11
 CCBASIC='-c -fPIC'
 CCISO='-ansi -pedantic' # -pedantic-errors'
 CCDEBUG= #-g -DDEBUG_GALAHAD
