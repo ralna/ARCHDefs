@@ -3,7 +3,7 @@
 # Fortran compilation and loading
 #
 
-FORTRAN='/opt/homebrew/bin/gfortran'
+FORTRAN='gfortran'
 BASIC='-c -fPIC -fno-second-underscore -flat_namespace'
 MBASIC='-fPIC -fno-second-underscore -flat_namespace'
 LIBCMD=''
