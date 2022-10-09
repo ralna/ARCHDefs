@@ -1,10 +1,10 @@
-# GNU gcc compiler 11 for 64-bit Macs (incl. M1) under OSX via homebrew
+# GNU gcc compiler 12 for 64-bit Macs (incl. M1) under OSX via homebrew
 
 #
 #  C compilation and loading
 #
 
-CC=gcc-11
+CC=gcc-12
 CCBASIC='-c -fPIC'
 CCISO='-ansi -pedantic' # -pedantic-errors'
 CCDEBUG= #-g -DDEBUG_GALAHAD
