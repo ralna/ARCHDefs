@@ -55,7 +55,7 @@ let install_archdefs=0
 if (( $install_archdefs )) ; then
   if [[ -z "$ARCHDEFS" || ! -f "$ARCHDEFS/version" ]]; then
     if [[ ! -d "$PWD/../archdefs" || ! -f "$PWD/../archdefs/version" ]]; then
-      error 'environment variable ARCHDEFS is not set, nor does the
+      echo 'environment variable ARCHDEFS is not set, nor does the
  directory ../archdefs exist. Install the ARCHDefs package, set
  the variable $ARCHDEFS to the archdefs directory and re-run.'
       exit 1
