@@ -51,3 +51,6 @@ NOT95=IS95
 NOT64=IS64
 BINSHELL=sh
 SHARED='-shared'
+PASTIX='-lgalahad_pastix'
+MUMPS='-lgalahad_mumps'
+UMFPACK='-lgalahad_umfpack'

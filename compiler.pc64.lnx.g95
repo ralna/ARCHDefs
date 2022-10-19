@@ -47,3 +47,6 @@ BINSHELL=sh
 MA97BUG=g95
 
 SHARED='-shared'
+PASTIX='-lgalahad_pastix'
+MUMPS='-lgalahad_mumps'
+UMFPACK='-lgalahad_umfpack'
