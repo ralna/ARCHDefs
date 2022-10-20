@@ -39,3 +39,4 @@ RANLIB="true"  # Ranlib isn't useful on OSX.
 #  is sched_getcpu unavailable?
 
 GETCPU="un"
+DLEXT="dylib"

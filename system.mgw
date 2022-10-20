@@ -39,3 +39,4 @@ RANLIB="/mingw/bin/ranlib"
 #  is sched_getcpu unavailable?
 
 GETCPU="un"
+DLEXT="so"

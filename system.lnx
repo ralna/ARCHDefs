@@ -39,3 +39,4 @@ RANLIB="/usr/bin/ranlib"
 #  is sched_getcpu unavailable?
 
 GETCPU=""
+DLEXT="so"
