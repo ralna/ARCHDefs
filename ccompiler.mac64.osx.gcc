@@ -10,7 +10,7 @@ CCISO='-ansi -pedantic' # -pedantic-errors'
 CCDEBUG= #-g -DDEBUG_GALAHAD
 CCFFLAGS=-lgfortran
 
-CXX=/opt/homebrew/bin/g++-11
+CXX=g++-12
 CXXBASIC='-c -std=c++11 -fPIC -I/opt/homebrew/include'
 CXXOPT=-O2
 CXXNOOPT=-O0
