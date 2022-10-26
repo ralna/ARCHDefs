@@ -41,6 +41,7 @@ while [ $CORRECT_PLATFORM == "false" ]; do
    echo '   (4) PC with generic 64-bit processor'
    echo '   (5) MAC OS/X'
    echo '   (6) 64-bit MAC OS/X'
+   echo '   (7) Cross-compiler BinaryBuilder'
 
    read CHOICE
 
@@ -163,8 +164,15 @@ while [ $CORRECT_PLATFORM == "false" ]; do
              export OS="osx"
              export OPSYS="MacOSX"
 ;;
+       "7")
+             CORRECT_PLATFORM="true"
+             export MCH="binarybuilder"
+             export MACHINE="Cross-compiler BinaryBuilder"
+             export OS="bb"
+             export OPSYS="BB"
+;;
        *)
-         echo ' Please give an integer between 1 and 6'
+         echo ' Please give an integer between 1 and 7'
    esac
 done
 
