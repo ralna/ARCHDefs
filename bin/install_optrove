@@ -100,7 +100,7 @@ if (( $install_galahad )); then
      echo '    (4) the regularised quadratic solvers and their dependencies'
      echo '    (5) the un/bound-constrained solvers and their dependencies'
      echo '    (6) FILTRANE and its dependencies'
-     echo '    (7) the global optimizationsolvers and their dependencies'
+     echo '    (7) the global optimization solvers and their dependencies'
 
      read CHOICE
 
