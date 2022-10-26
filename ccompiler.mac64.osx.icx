@@ -6,13 +6,13 @@
 
 CC=icx
 #CCBASIC='-c -vec-report0 -DIsifr' # -mmacosx-version-min=10.4'
-CCBASIC='-c -DIsifr'
+CCBASIC='-c -DIsifr -fpic'
 CCISO='-ansi'
 CCDEBUG=#-DDEBUG_GALAHAD
 CCFFLAGS=-nofor_main
 
 CXX='$(CC)'
-CXXBASIC='-c -std=c++11 -I/usr/local/include'
+CXXBASIC='-c -std=c++11 -fpic -I/usr/local/include'
 CXXOPT=-O2
 CXXNOOPT=-O0
 CXXDEBUG=''

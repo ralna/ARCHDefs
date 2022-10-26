@@ -6,7 +6,7 @@
 #for ifc pre version 8 replace next line by
 #FORTRAN='ifc'
 FORTRAN='ifort'
-BASIC='-c'
+BASIC='-c -fpic'
 LIBCMD=''
 #for ifc pre version 7 replace next line by
 #MODCMD='-cl,$MOD/work.pcl -Vaxlib'
