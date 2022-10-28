@@ -375,7 +375,8 @@ VERSION=${MCH}.${OS}.${CMP}
 
 if [ $OMP4 == "yes" ]; then
  if [[ ${OS} == "osx" ]]; then
-   if [[ ${CMP} == "ifr" ]]; then
+#   if [[ ${CMP} == "ifr" ]]; then
+   if [[ ${CMP} == "" ]]; then
     SSIDS_REQUIRED=0
     SSIDS="ssids_dum"
    else
