@@ -5,7 +5,7 @@
 
 #for ifc pre version 8 replace next line by
 #FORTRAN='ifc'
-FORTRAN='ifort -L/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib'
+FORTRAN='ifort'
 #BASIC='-c -vec-report0'
 BASIC='-c -fpic'
 LIBCMD=''
@@ -14,7 +14,7 @@ LIBCMD=''
 MODCMD='-module $MOD -I$MOD'
 MODCMDB='-I$MOD'
 MVMODS=':'
-OPTIMIZATION='-O2'
+OPTIMIZATION='-O'
 NOOPTIMIZATION='-O0'
 DEBUG=
 OPENMP=

@@ -5,14 +5,14 @@
 #
 
 CC=icc
-#CCBASIC='-c -vec-report0 -DIsifr -fpic' # -mmacosx-version-min=10.4'
-CCBASIC='-c -DIsifr -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -std=c11'
+#CCBASIC='-c -vec-report0 -DIsifr -fpic'
+CCBASIC='-c -DIsifr -std=c11'
 CCISO='-ansi'
 CCDEBUG=#-DDEBUG_GALAHAD
 CCFFLAGS=-nofor_main
 
 CXX=icpc
-CXXBASIC='-c -std=c++11 -fpic -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include'
+CXXBASIC='-c -std=c++11 -fpic'
 CXXOPT=-O2
 CXXNOOPT=-O0
 CXXDEBUG=''
