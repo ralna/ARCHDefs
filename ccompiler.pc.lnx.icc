@@ -11,7 +11,7 @@ CCDEBUG=#-DDEBUG_GALAHAD
 CCFFLAGS=-nofor_main
 
 CXX=icpc
-CXXBASIC='-c -std=c++11 -fpic'
+CXXBASIC='-c -std=c++11 -fpic -I/usr/local/include -fopenmp -diag-disable=10441'
 CXXOPT=-O2
 CXXNOOPT=-O0
 CXXDEBUG=''
