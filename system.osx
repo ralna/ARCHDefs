@@ -42,4 +42,4 @@ GETCPU="un"
 DLEXT="dylib"
 LOADALL="-Wl,-all_load"
 LOADNONE=
-
+NOUNDEFINED="-Wl,-undefined,error"
