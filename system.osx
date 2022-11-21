@@ -41,5 +41,4 @@ RANLIB="true"  # Ranlib isn't useful on OSX.
 GETCPU="un"
 DLEXT="dylib"
 LOADALL="-Wl,-all_load"
-LOADNONE=
-
+NOUNDEFINED="-Wl,-undefined,error"

@@ -39,5 +39,6 @@ RANLIB="ranlib"
 
 GETCPU="un"
 DLEXT="$dlext"
-LOADALL="$(flagon -Wl,--whole-archive)"
-LOADNONE="$(flagon -Wl,--no-whole-archive)"
+LOADALL="$(flagon --whole-archive)"
+LOADNONE="$(flagon --no-whole-archive)"
+NOUNDEFINED=""
