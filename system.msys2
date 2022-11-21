@@ -40,5 +40,5 @@ RANLIB="$MINGW64/bin/ranlib"
 
 GETCPU="un"
 DLEXT="so"
-LOADALL="--whole-archive"
-LOADNONE="--no-whole-archive"
+LOADALL="-Wl,--whole-archive"
+LOADNONE="-Wl,--no-whole-archive"

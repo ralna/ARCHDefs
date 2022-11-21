@@ -40,5 +40,5 @@ RANLIB="/usr/bin/ranlib"
 
 GETCPU=""
 DLEXT="so"
-LOADALL="--whole-archive"
-LOADNONE="--no-whole-archive"
+LOADALL="-Wl,--whole-archive"
+LOADNONE="-Wl,--no-whole-archive"
