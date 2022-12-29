@@ -82,7 +82,7 @@ while [ $CORRECT_PLATFORM == "false" ]; do
                esac
             done
 ;;
-       "1")
+       "2")
              CORRECT_PLATFORM="true"
              export MCH="mac64"
              export MACHINE="64-bit Mac"
