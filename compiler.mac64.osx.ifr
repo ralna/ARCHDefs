@@ -3,14 +3,9 @@
 # Fortran compilation and loading
 #
 
-#for ifc pre version 8 replace next line by
-#FORTRAN='ifc'
 FORTRAN='ifort'
-#BASIC='-c -vec-report0'
-BASIC='-c -fpic'
+BASIC='-c -fpic -fpp'
 LIBCMD=''
-#for ifc pre version 7 replace next line by
-#MODCMD='-cl,$MOD/work.pcl -Vaxlib'
 MODCMD='-module $MOD -I$MOD'
 MODCMDB='-I$MOD'
 MVMODS=':'

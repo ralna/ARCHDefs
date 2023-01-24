@@ -4,7 +4,7 @@
 #
 
 FORTRAN='gfortran-12'
-BASIC='-c -fPIC -fno-second-underscore -flat_namespace'
+BASIC='-c -fPIC -fno-second-underscore -flat_namespace -cpp'
 MBASIC='-fPIC -fno-second-underscore -flat_namespace'
 LIBCMD=''
 MODCMD='-I$MOD'
