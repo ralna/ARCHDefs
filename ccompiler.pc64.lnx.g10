@@ -1,16 +1,16 @@
-# GNU gcc latest compiler
+# GNU gcc-10 compiler
 
 #
 #  C compilation and loading
 #
 
-CC=gcc-12
+CC=gcc-10
 CCBASIC='-c -fPIC'
 CCISO='-ansi -pedantic' # -pedantic-errors'
 CCDEBUG= #-g -DDEBUG_GALAHAD
 CCFFLAGS='-lgfortran -lm'
 
-CXX=g++-12
+CXX=g++-10
 CXXBASIC='-c -std=c++11 -fPIC'
 CXXOPT=-O2
 CXXNOOPT=-O0
