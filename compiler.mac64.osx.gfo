@@ -3,7 +3,7 @@
 # Fortran compilation and loading
 #
 
-FORTRAN='gfortran-12'
+FORTRAN='gfortran'
 BASIC='-c -fPIC -fno-second-underscore -flat_namespace -cpp'
 MBASIC='-fPIC -fno-second-underscore -flat_namespace'
 LIBCMD=''

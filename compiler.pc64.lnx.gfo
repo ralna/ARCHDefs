@@ -3,7 +3,7 @@
 # Fortran compilation and loading
 #
 
-FORTRAN='gfortran-12'
+FORTRAN='gfortran'
 BASIC='-c -fno-second-underscore -fPIC'
 MBASIC='-fno-second-underscore -fPIC'
 LIBCMD=''
