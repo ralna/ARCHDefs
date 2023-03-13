@@ -1,9 +1,9 @@
-# GNU gfortran latest compiler
+# GNU gfortran 12 compiler
 #
 # Fortran compilation and loading
 #
 
-FORTRAN='gfortran'
+FORTRAN='gfortran-12'
 BASIC='-c -fno-second-underscore -fPIC'
 MBASIC='-fno-second-underscore -fPIC'
 LIBCMD=''
