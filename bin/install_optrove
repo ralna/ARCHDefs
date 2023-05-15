@@ -78,8 +78,10 @@ fi
 
 if (( $install_galahad )); then
 
-  if [[ -z "$GALAHAD" || ! -f "$GALAHAD/version" ]]; then
-    if [[ ! -d "$PWD/../galahad" || ! -f "$PWD/../galahad/version" ]]; then
+# if [[ -z "$GALAHAD" || ! -f "$GALAHAD/version" ]]; then
+  if [[ -z "$GALAHAD" ]]; then
+#   if [[ ! -d "$PWD/../galahad" || ! -f "$PWD/../galahad/version" ]]; then
+    if [[ ! -d "$PWD/../galahad" ]]; then
       error 'environment variable GALAHAD is not set, nor does the
  directory ../galahad exist. Install the GALAHAD package, set
  the variable $GALAHAD to the galahad directory and re-run.'
@@ -186,7 +188,7 @@ if (( $install_galahad )); then
     if (( $install_c )); then
       C_REQUIRED=1
     fi
-    yesno_default_no ' Do you require python interfaces to GALAHAD (very limited at present)'
+    yesno_default_no ' Do you require python interfaces to GALAHAD'
     let install_py=$?
     if (( $install_py )); then
       python3 -V &>/dev/null
