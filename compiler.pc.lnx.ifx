@@ -4,7 +4,7 @@
 #
 
 FORTRAN='ifx'
-BASIC='-c -fpic'
+BASIC='-c -fpic -fpp'
 LIBCMD=''
 MODCMD='-module $MOD -I$MOD'
 MODCMDB='-I$MOD'

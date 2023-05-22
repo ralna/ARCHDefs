@@ -4,8 +4,8 @@
 #
 
 FORTRAN='gfortran-11'
-BASIC='-c -fno-second-underscore -fPIC'
-MBASIC='-fno-second-underscore -fPIC'
+BASIC='-c -fno-second-underscore -fPIC -cpp'
+MBASIC='-fno-second-underscore -fPIC -cpp'
 LIBCMD=''
 MODCMD='-I$MOD'
 MODCMDB=$MODCMD

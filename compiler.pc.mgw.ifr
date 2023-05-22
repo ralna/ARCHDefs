@@ -5,7 +5,7 @@
 #
 
 FORTRAN='ifort -nologo'
-BASIC='-c -fpic'
+BASIC='-c -fpic -fpp -diag-disable=10441 -diag-disable=3850'
 LIBCMD=''
 MODCMD='-module:$MOD -I$MOD'
 MODCMDB='-I$MOD'
