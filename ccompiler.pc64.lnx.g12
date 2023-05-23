@@ -5,7 +5,7 @@
 #
 
 CC=gcc-12
-CCBASIC='-c -fPIC'
+CCBASIC='-c -std=c11 -fPIC'
 CCISO='-ansi -pedantic' # -pedantic-errors'
 CCDEBUG= #-g -DDEBUG_GALAHAD
 CCFFLAGS='-lgfortran -lm'

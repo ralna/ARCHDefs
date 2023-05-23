@@ -5,7 +5,7 @@
 #
 
 CC=gcc
-CCBASIC='-c -fPIC'
+CCBASIC='-c -std=c11 -fPIC'
 CCISO=''
 CCDEBUG=#-DDEBUG_GALAHAD
 CCFFLAGS='-lgfortran -lm'

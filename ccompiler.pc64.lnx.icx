@@ -5,7 +5,7 @@
 #
 
 CC=icx
-CCBASIC='-c -DIsifr -fpic'
+CCBASIC='-c -std=c11 -DIsifr -fpic'
 CCISO='-ansi'
 CCDEBUG=#-DDEBUG_GALAHAD
 CCFFLAGS=-nofor_main
