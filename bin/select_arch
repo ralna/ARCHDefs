@@ -32,160 +32,18 @@ fi
 
 #  determine the platform and operating system used
 
-CORRECT_PLATFORM="false"
-while [ $CORRECT_PLATFORM == "false" ]; do
-   echo -e ' Select platform\n'
-   echo '   (1) PC with generic 64-bit processors'
-   echo '   (2) MAC OS/X with 64-bit processors'
-   echo '   (3) PC'
-   echo '   (4) MAC OS/X'
-   echo '   (5) Cray'
-   echo '   (6) HP workstation'
-   echo '   (7) Cross-compiler BinaryBuilder'
-
-   read CHOICE
-
-   case  $CHOICE  in
-       "1")
-            CORRECT_PLATFORM="true"
-            export MCH="pc64"
-            export MACHINE="Intel-like PC with a 64-bit processor"
-
-            CORRECT_OS="false"
-            while [ $CORRECT_OS == "false" ]; do
-
-               echo -e ' Select operating system\n'
-               echo '   (1) Linux'
-               echo '   (2) Windows 10 onwards with MinGW64/Msys2'
-               echo '   (3) Windows 2000/XP with MinGW/Msys'
-
-               read CHOICE
-
-               case  $CHOICE  in
-               1)
-                  CORRECT_OS="true"
-                  export OS="lnx"
-                  export OPSYS="Linux"
-;;
-               2)
-                  CORRECT_OS="true"
-                  export OS="msys2"
-                  export OPSYS="MSYS2"
-;;
-               3)
-                  CORRECT_OS="true"
-                  export OS="mgw"
-                  export OPSYS="MGW"
-;;
-               *)
-                  echo ' Please give an integer between 1 and 3'
-               esac
-            done
-;;
-       "2")
-             CORRECT_PLATFORM="true"
-             export MCH="mac64"
-             export MACHINE="64-bit Mac"
-             export OS="osx"
-             export OPSYS="MacOSX"
-;;
-       "3")
-            CORRECT_PLATFORM="true"
-            export MCH="pc"
-            export MACHINE="Intel-like PC"
-
-            CORRECT_OS="false"
-            while [ $CORRECT_OS == "false" ]; do
-
-               echo -e ' Select operating system\n'
-               echo '   (1) Linux'
-               echo '   (2) Windows 2000/XP with MinGW/Msys'
-
-               read CHOICE
-
-               case  $CHOICE  in
-               1)
-                  CORRECT_OS="true"
-                  export OS="lnx"
-                  export OPSYS="Linux"
-;;
-               2)
-                  CORRECT_OS="true"
-                  export OS="mgw"
-                  export OPSYS="MGW"
-;;
-               *)
-                  echo ' Please give an integer between 1 and 2'
-               esac
-            done
-;;
-       "4")
-             CORRECT_PLATFORM="true"
-             export MCH="mac"
-             export MACHINE="Mac"
-             export OS="osx"
-             export OPSYS="MacOSX"
-;;
-       "5")
-            CORRECT_PLATFORM="true"
-            export MCH="cry"
-            export MACHINE="CRAY T3E"
-            export OS="unc"
-            export OPSYS="UNICOS"
-;;
-       "6")
-            CORRECT_PLATFORM="true"
-            export MCH="hp"
-            export MACHINE="HP workstation"
-
-            CORRECT_OS="false"
-            while [ $CORRECT_OS == "false" ]; do
-
-               echo ' Select operating system'
-               echo
-               echo '   (1) HP-UX'
-               echo '   (2) Linux'
-
-               read CHOICE
-
-               case  $CHOICE  in
-               1)
-                  CORRECT_OS="true"
-                  export OS="hpu"
-                  export OPSYS="HP-UX"
-;;
-               2)
-                  CORRECT_OS="true"
-                  export OS="lnx"
-                  export OPSYS="Linux"
-;;
-               *)
-                  echo ' Please give an integer between 1 and 2'
-               esac
-            done
-;;
-       "7")
-             CORRECT_PLATFORM="true"
-             export MCH="binarybuilder"
-             export MACHINE="Cross-compiler BinaryBuilder"
-             export OS="bb"
-             export OPSYS="BB"
-;;
-       *)
-         echo ' Please give an integer between 1 and 7'
-   esac
-done
+. $ARCHDEFS/bin/select_platform
 
 PLPLOTUSED="unused"
 PLPLOT=""
 MBASIC=""
 
+#  record relevant OS-specific system commands
+
 unalias source 2>/dev/null
-
-yesno_default_no ' Would you like to review and modify the system commands'
-[[ $? == 1 ]] && ${FCEDIT:-${VISUAL:-${EDITOR:-vim}}} $ARCH/system.$OS
-
 source $ARCH/system.$OS
+
+#  is Matlab required?
 
 if (( $MATLAB_REQUIRED )); then
   MATLABOMP4="no"

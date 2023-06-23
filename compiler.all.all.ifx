@@ -3,7 +3,7 @@
 # Fortran compilation and loading
 #
 
-FORTRAN='ifx'
+FORTRAN='ifort'
 BASIC='-c -fpic -fpp'
 LIBCMD=''
 MODCMD='-module $MOD -I$MOD'
