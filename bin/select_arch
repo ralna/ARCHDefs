@@ -262,7 +262,7 @@ if [ $OMP4 == "yes" ]; then
    else
     SSIDS_REQUIRED=1
     SSIDS="ssids"
-    SPRAL="$SPRAL -lhwloc"
+    SPRAL="$SPRAL -lstdc++ -lhwloc"
    fi
  else
   SSIDS_REQUIRED=1
