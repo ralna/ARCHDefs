@@ -6,7 +6,7 @@
 
 CC=clang
 CCBASIC='-c -fPIC'
-CCISO='-ansi -pedantic' # -pedantic-errors'
+CCISO='-pedantic' # -pedantic-errors'
 CCDEBUG= #-g -DDEBUG_GALAHAD
 CCFFLAGS='-lgfortran -lm'
 

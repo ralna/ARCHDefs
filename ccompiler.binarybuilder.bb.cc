@@ -1,7 +1,7 @@
 # C and C++ compilers for BinaryBuilder
 
 CCBASIC='-c -fPIC'
-CCISO='-ansi -pedantic'
+CCISO='-pedantic'
 CCDEBUG=#-DDEBUG_GALAHAD
 CCFFLAGS='-lgfortran -lm'
 

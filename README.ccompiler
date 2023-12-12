@@ -17,7 +17,7 @@ Current atribute are (with defaults/options):
 
 CC                C compiler command (gcc, icc etc)
 CCBASIC           compiler basic compile options (-c)
-CCISO             compiler flag to support ANSI C (-ansi)
+CCISO             compiler flag to support ISO C ()
 CCDEBUG           compiler debug flag
 CCFFLAGS          compiler flags to interoperate with fortran
 CXX               C++ compiler command (g++, icc etc)   

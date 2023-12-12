@@ -7,7 +7,7 @@
 CC=icc
 #CCBASIC='-c -vec-report0 -DIsifr -fpic'
 CCBASIC='-c -DIsifr -std=c11 -diag-disable=10441'
-CCISO='-ansi'
+CCISO=''
 CCDEBUG=#-DDEBUG_GALAHAD
 CCFFLAGS=-nofor_main
 
