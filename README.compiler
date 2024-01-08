@@ -1,16 +1,16 @@
 files named compiler.mach.os.comp indicate the
-Fortran compilation and load flags for use on the 
+Fortran compilation and load flags for use on the
 machine "mach" that uses the UNIX operating
 system "os" and for the compiler "comp".
 
 Each line contains the name of an atribute that
 can be set, and equals sign (=) and the value
-that is to be ascribed to the atribute. If the 
-latter contains spaces/blanks, it should be 
+that is to be ascribed to the atribute. If the
+latter contains spaces/blanks, it should be
 surrounded by ''. If no value is to be
 ascribed, there is no need for a string beyond =.
 
-Look at any of the compiler.*.*.* files for 
+Look at any of the compiler.*.*.* files for
 suggestions and examples.
 
 Current atribute are (with defaults/options):
@@ -20,7 +20,7 @@ BASIC             compiler basic compile options (-c)
 LIBCMD            compiler link library options
 MODCMD            compiler module create options (-module $MOD -I$MOD)
 MODCMDB           compiler module access options (-I$MOD)
-MVMODS ':'        command needed to move module info files to module diectory 
+MVMODS ':'        command needed to move module info files to module diectory
 OPTIMIZATION      compiler optimization level (-O)
 NOOPTIMIZATION    compiler no optimization level (-O0)
 DEBUG             compiler debug flag (-g)
@@ -56,4 +56,5 @@ MKL_PARDISO       options to link MKL Pardiso codes (-lgalahad_mkl_pardiso)
 WSMP              options to link WSMP codes  (-lgalahad_wsmp)
 NOT95             is the compiler at least fortran 95? (IS95/NOT95)
 NOT64             is the operating system 64-bit? (IS64/NOT64)
+INTEGER           compile with this integer type (32bit/64bit)
 BINSHELL          the default UNIX shell used (usually sh)
