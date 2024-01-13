@@ -6,6 +6,7 @@
 FORTRAN='gfortran-13'
 BASIC='-c -fPIC -fno-second-underscore -flat_namespace -cpp'
 MBASIC='-fPIC -fno-second-underscore -flat_namespace -cpp'
+I8='-finteger-4-integer-8'
 LIBCMD=''
 MODCMD='-I$MOD'
 MODCMDB=$MODCMD

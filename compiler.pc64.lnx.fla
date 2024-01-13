@@ -6,6 +6,7 @@
 FORTRAN='flang'
 BASIC='-c -fPIC'
 MBASIC='-fPIC'
+I8='-i8'
 LIBCMD=''
 MODCMD='-I$MOD'
 MODCMDB=$MODCMD

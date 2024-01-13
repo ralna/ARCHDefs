@@ -16,7 +16,9 @@ suggestions and examples.
 Current atribute are (with defaults/options):
 
 FORTRAN           fortran compiler command (gfortran, ifort, nagfor, etc)
-BASIC             compiler basic compile options (-c)
+BASIC             compiler basic compile options (-c -fPIC)
+MBASIC            compiler basic compile options for matlab (-fPIC)
+I8                compiler flag to convert integers to 64bit (-i8)
 LIBCMD            compiler link library options
 MODCMD            compiler module create options (-module $MOD -I$MOD)
 MODCMDB           compiler module access options (-I$MOD)

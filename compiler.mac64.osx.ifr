@@ -6,6 +6,7 @@
 FORTRAN='ifort'
 BASIC='-c -fpic -fpp -fpp -diag-disable=10441 -diag-disable=3850'
 LIBCMD=''
+I8='-integer-size 64'
 MODCMD='-module $MOD -I$MOD'
 MODCMDB='-I$MOD'
 MVMODS=':'

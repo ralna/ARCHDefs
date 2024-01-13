@@ -6,6 +6,7 @@
 FORTRAN='f90'
 BASIC='-c -ep'
 LIBCMD=''
+I8='-i8'
 MODCMD='-p $MOD -I $MOD'
 MODCMDB=$MODCMD
 MVMODS=''

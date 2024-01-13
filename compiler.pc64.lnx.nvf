@@ -6,6 +6,7 @@
 FORTRAN='nvfortran'
 BASIC='-c -fpic'
 MBASIC='-fpic'
+I8='-i8'
 LIBCMD=''
 MODCMD='-I$MOD'
 MODCMDB=$MODCMD

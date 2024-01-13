@@ -6,6 +6,7 @@
 FORTRAN='xlf95'
 BASIC='-c -qhalt=s -qmaxmem=-1 -qspillsize=20000'
 LIBCMD=''
+I8='-i8'
 MODCMD='-qmoddir=$MOD -I $MOD'
 MODCMDB=$MODCMD
 MVMODS=':'
