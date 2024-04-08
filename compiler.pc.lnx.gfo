@@ -52,6 +52,7 @@ WSMP='-lgalahad_wsmp'
 NOT95=IS95
 NOT64=NOT64
 INTEGER=32bit
+QUADREAL=yes
 BINSHELL=sh
 SHARED='-shared'
 PASTIX='-lgalahad_pastix'
