@@ -4,13 +4,13 @@
 #  C compilation and loading
 #
 
-CC=gcc-13
+CC=gcc-14
 CCBASIC='-c -std=gnu11 -fPIC'
 CCISO='-pedantic' # -pedantic-errors'
 CCDEBUG= #-g -DDEBUG_GALAHAD
 CCFFLAGS=-lgfortran
 
-CXX=g++-13
+CXX=g++-14
 CXXBASIC='-c -std=gnu++11 -fPIC -I/opt/homebrew/include'
 CXXOPT=-O2
 CXXNOOPT=-O0
