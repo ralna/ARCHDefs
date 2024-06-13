@@ -216,8 +216,10 @@ elif (( $install_cutest )); then
 fi
 
 if (( $install_cutest )) ; then
-  if [[ -z "$CUTEST" || ! -f "$CUTEST/version" ]]; then
-    if [[ ! -d "$PWD/../cutest" || ! -f "$PWD/../cutest/version" ]]; then
+# if [[ -z "$CUTEST" || ! -f "$CUTEST/version" ]]; then
+  if [[ -z "$CUTEST" ]]; then
+#   if [[ ! -d "$PWD/../cutest" || ! -f "$PWD/../cutest/version" ]]; then
+    if [[ ! -d "$PWD/../cutest" ]]; then
       error 'environment variable CUTEST is not set, nor does the
  directory ../cutest exist. Install the CUTEst package, set
  the variable $CUTEST to the cutest directory and re-run.'
@@ -246,8 +248,10 @@ else
 fi
 
 if (( $install_sifdecode )) ; then
-  if [[ -z "$SIFDECODE" || ! -f "$SIFDECODE/version" ]]; then
-    if [[ ! -d "$PWD/../sifdecode" || ! -f "$PWD/../sifdecode/version" ]]; then
+# if [[ -z "$SIFDECODE" || ! -f "$SIFDECODE/version" ]]; then
+  if [[ -z "$SIFDECODE" ]]; then
+#   if [[ ! -d "$PWD/../sifdecode" || ! -f "$PWD/../sifdecode/version" ]]; then
+    if [[ ! -d "$PWD/../sifdecode" ]]; then
       error 'environment variable SIFDECODE is not set, nor does the
  directory ../sifdecode exist. Install the SIFDecode package, set
  the variable $SIFDECODE to the sifdecode directory and re-run.'
