@@ -3,7 +3,7 @@
 # Fortran compilation and loading
 #
 
-FORTRAN='gfortran-13'
+FORTRAN='gfortran-14'
 BASIC='-c -fPIC -fno-second-underscore -flat_namespace -cpp'
 MBASIC='-fPIC -fno-second-underscore -flat_namespace -cpp'
 I8='-finteger-4-integer-8'
