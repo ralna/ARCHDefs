@@ -216,11 +216,7 @@ elif (( $install_cutest )); then
 fi
 
 if (( $install_cutest )) ; then
-<<<<<<< HEAD
-#  if [[ -z "$CUTEST" || ! -f "$CUTEST/version" ]]; then
-=======
 # if [[ -z "$CUTEST" || ! -f "$CUTEST/version" ]]; then
->>>>>>> dbda54d8c097f159a5230a9760933715a760e417
   if [[ -z "$CUTEST" ]]; then
 #   if [[ ! -d "$PWD/../cutest" || ! -f "$PWD/../cutest/version" ]]; then
     if [[ ! -d "$PWD/../cutest" ]]; then
@@ -252,11 +248,7 @@ else
 fi
 
 if (( $install_sifdecode )) ; then
-<<<<<<< HEAD
-#  if [[ -z "$SIFDECODE" || ! -f "$SIFDECODE/version" ]]; then
-=======
 # if [[ -z "$SIFDECODE" || ! -f "$SIFDECODE/version" ]]; then
->>>>>>> dbda54d8c097f159a5230a9760933715a760e417
   if [[ -z "$SIFDECODE" ]]; then
 #   if [[ ! -d "$PWD/../sifdecode" || ! -f "$PWD/../sifdecode/version" ]]; then
     if [[ ! -d "$PWD/../sifdecode" ]]; then
