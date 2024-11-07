@@ -1,0 +1,20 @@
+# GNU gcc 13 compiler
+
+#
+#  C compilation and loading
+#
+
+CC=gcc-13
+CCBASIC='-c -std=gnu11 -fPIC'
+CCISO='-pedantic' # -pedantic-errors'
+CCDEBUG= #-g -DDEBUG_GALAHAD
+CCFFLAGS='-lgfortran -lm'
+
+CXX=g++-13
+CXXBASIC='-c -std=gnu++11 -fPIC'
+CXXOPT=-O2
+CXXNOOPT=-O0
+CXXDEBUG=''
+CXXFFLAGS=''
+
+HWLOC=''
