@@ -6,7 +6,7 @@
 FORTRAN='nagfor'
 # for compiler version pre 5.2 replace by
 #FORTRAN='f95'
-BASIC='-c -dcfuns'
+BASIC='-c -dcfuns -DNO_IEEECK'
 LIBCMD=''
 MODCMD='-I$MOD'
 MODCMDB=$MODCMD
