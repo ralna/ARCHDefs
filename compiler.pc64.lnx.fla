@@ -1,4 +1,4 @@
-# LLVM Flang compiler
+# Classic Flang compiler
 #
 # Fortran compilation and loading
 #
@@ -15,7 +15,7 @@ OPTIMIZATION='-O'
 NOOPTIMIZATION='-O0'
 DEBUG=
 OPENMP='fopenmp -lstdc++ -lhwloc'
-SOMP='-fopenmp=libomp -I/usr/lib/llvm-14/lib/clang/14.0.0/include'
+SOMP='-fopenmp'=libomp -I/usr/lib/llvm-14/lib/clang/14.0.0/include'
 F77='-ffixed-form'
 F90=''
 F95=''

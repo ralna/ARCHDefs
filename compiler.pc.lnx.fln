@@ -1,9 +1,9 @@
-# Classic Flang compiler
+# LLVM Flang compiler
 #
 # Fortran compilation and loading
 #
 
-FORTRAN='flang'
+FORTRAN='flang-new'
 BASIC='-c -fPIC'
 MBASIC='-fPIC'
 I8='-fdefault-integer-8'
