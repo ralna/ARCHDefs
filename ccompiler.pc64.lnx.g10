@@ -11,7 +11,7 @@ CCDEBUG= #-g -DDEBUG_GALAHAD
 CCFFLAGS='-lgfortran -lm'
 
 CXX=g++-10
-CXXBASIC='-c -std=gnu++11 -fPIC'
+CXXBASIC='-c -std=gnu++11 -fPIC -Wno-incompatible-pointer-types'
 CXXOPT=-O2
 CXXNOOPT=-O0
 CXXDEBUG=''

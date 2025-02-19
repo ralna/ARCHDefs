@@ -11,7 +11,7 @@ CCDEBUG=#-DDEBUG_GALAHAD
 CCFFLAGS=-nofor_main
 
 CXX=icpx
-CXXBASIC='-c -std=c++17 -fpic -I/usr/local/include -fopenmp'
+CXXBASIC='-c -std=c++17 -fpic -I/usr/local/include -fopenmp -Wno-incompatible-pointer-types'
 CXXOPT=-O2
 CXXNOOPT=-O0
 CXXDEBUG=''
