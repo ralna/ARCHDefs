@@ -1,4 +1,4 @@
-# Intel ifx compiler
+# Intel ifx generic compiler
 #
 # Fortran compilation and loading
 #
@@ -38,9 +38,10 @@ LAPACK=
 OMP4=yes
 IEEECK=
 HSL=
-SPRAL='-lgalahad_spral'
-METIS4='-lgalahad_metis4'
-METIS5=
+METIS4ND=
+METIS5ND=
+METIS464ND=
+METIS564ND=
 PARMETIS=
 SCOTCH=
 PTSCOTCH=
