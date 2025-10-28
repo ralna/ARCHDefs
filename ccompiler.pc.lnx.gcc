@@ -5,14 +5,14 @@
 #
 
 CC=gcc
-CCBASIC='-c -std=gnu11 -fPIC'
+CCBASIC='-c -std=gnu11 -fPIC -Ofast'
 CCISO='-pedantic' # -pedantic-errors'
 CCDEBUG= #-g -DDEBUG_GALAHAD
 CCFFLAGS='-lgfortran -lm'
 
 CXX=g++
 CXXBASIC='-c -std=gnu++11 -fPIC'
-CXXOPT=-O2
+CXXOPT=-Ofast
 CXXNOOPT=-O0
 CXXDEBUG=''
 CXXFFLAGS=''

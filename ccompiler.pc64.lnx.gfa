@@ -1,0 +1,20 @@
+# GNU gcc latest compiler (fast options)
+
+#
+#  C compilation and loading
+#
+
+CC=gcc
+CCBASIC='-c -std=gnu11 -fPIC -Ofast'
+CCISO='-pedantic' # -pedantic-errors'
+CCDEBUG= #-g -DDEBUG_GALAHAD
+CCFFLAGS='-lgfortran -lm'
+
+CXX=g++
+CXXBASIC='-c -std=gnu++11 -fPIC -Wno-incompatible-pointer-types'
+CXXOPT=-Ofast
+CXXNOOPT=-O0
+CXXDEBUG=''
+CXXFFLAGS=''
+
+HWLOC=''
